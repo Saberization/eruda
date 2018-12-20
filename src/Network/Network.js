@@ -141,6 +141,7 @@ export default class Network extends Tool {
     })
 
     this._requests[id] = data
+    window.eruda.xhrRequest = this._requests
 
     this._render()
   }
@@ -236,7 +237,6 @@ export default class Network extends Tool {
     let renderData = {}
 
     if (!isEmpty(this._requests)) renderData.requests = this._requests
-
     this._renderHtml(this._tpl(renderData))
   }
   _renderHtml(html) {
